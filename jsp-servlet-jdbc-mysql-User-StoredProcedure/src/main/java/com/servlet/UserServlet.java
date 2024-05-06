@@ -78,8 +78,7 @@ public class UserServlet extends HttpServlet {
     
     //Display Image from Database
 	private void DisplayImage(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-        String u_id=request.getParameter("id");
-        int id=Integer.parseInt(u_id);
+        int id=Integer.parseInt(request.getParameter("id"));
         
         InputStream input=UserServlet.class.getClassLoader().getResourceAsStream("UserForm.properties");  //Reading information from properties file
         Properties prop=new Properties();
@@ -190,7 +189,7 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         int id=Integer.parseInt(request.getParameter("id"));
         User existingUser=userDAO.selectUser(id);   
-        request.setAttribute("user", existingUser);
+        request.setAttribute("existingUser", existingUser);
         request.getRequestDispatcher("user-form.jsp").forward(request, response);
     }
 }

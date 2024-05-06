@@ -118,7 +118,7 @@ function validation(){
 </head>
 <body>
     <%
-    User user=(User)request.getAttribute("user");
+    User user=(User)request.getAttribute("existingUser");
     %>
     <%
     if(user!=null){
@@ -135,7 +135,7 @@ function validation(){
             <caption>
                 <h2 align="center" style="text-decoration:underline">
                     <%
-                    if(user==null) {
+                    if(user==null){
                     %>
                     Add New User
                     <%
@@ -196,7 +196,7 @@ function validation(){
                                             <%= (user != null && name.equals(user.getCountry())) ? "selected" : "" %>><%= name %></option>
                                         <%
                                     }
-                                } catch(Exception e) { 
+                                } catch(Exception e){ 
                                     e.printStackTrace(); 
                                 } 
                                 %>
@@ -232,8 +232,8 @@ function validation(){
 </html>
 
 <%
-String error = (String) request.getAttribute("error");
-if (error != null) {
+String error=(String)request.getAttribute("error");
+if(error!=null){
 %>
 <script>
 alert("<%=error%>");
