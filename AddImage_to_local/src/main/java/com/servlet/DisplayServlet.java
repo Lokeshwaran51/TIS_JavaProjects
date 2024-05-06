@@ -23,8 +23,7 @@ public class DisplayServlet extends HttpServlet {
          
          PrintWriter pw=response.getWriter();
     	
-        String img_id=request.getParameter("id");
-    	int id = Integer.parseInt(img_id);
+    	int id = Integer.parseInt(request.getParameter("id"));
     	
         int imgId=0;
         String imageFileName=null;
