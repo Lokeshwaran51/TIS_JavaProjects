@@ -151,7 +151,7 @@ function validation(){
                 <table>
                     <tr>
                         <td>
-                            <button style="background-color: Orange">
+                            <button style="background-color: #a83254">
                                 <a href="<%=request.getContextPath()%>/list" style="text-decoration: none">User List</a>
                             </button>
                         </td>

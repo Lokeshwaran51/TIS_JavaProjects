@@ -142,7 +142,7 @@ public class UserServlet extends HttpServlet {
             User newUser=new User(name, email, country, contact, gender, areaOfInterest1, imageName1);
             userDAO.insertUser(newUser);
             log.info("New User Record Inserted Successfully...");
-            response.sendRedirect("list");
+            response.sendRedirect("listUser");
         }
     }
 
@@ -163,7 +163,7 @@ public class UserServlet extends HttpServlet {
         User user = new User(id, name, email, country, contact, gender, areaOfInterest1,ImageName1);
         userDAO.updateUser(user);
         log.info("User id :"+id+" Record Updated Successfully...");
-        response.sendRedirect("list");
+        response.sendRedirect("listUser");
     }
 
     //Delete User
@@ -171,7 +171,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException {
         int id=Integer.parseInt(request.getParameter("id"));
         userDAO.deleteUser(id);
-        response.sendRedirect("list");
+        response.sendRedirect("listUser");
     }
    
     private void listUser(HttpServletRequest request, HttpServletResponse response)

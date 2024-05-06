@@ -26,13 +26,13 @@ public class DisplayServlet extends HttpServlet {
         String img_id=request.getParameter("id");
     	int id = Integer.parseInt(img_id);
     	
-        int imgId = 0;
-        String imageFileName = null;
+        int imgId=0;
+        String imageFileName=null;
         try {
             Class.forName(DB_DRIVER);
-            Connection connection = DriverManager.getConnection(DB_URL, DB_UserName, DB_Password);
+            Connection connection=DriverManager.getConnection(DB_URL, DB_UserName, DB_Password);
             String query = "SELECT * FROM upload_image WHERE image_id=?";
-            PreparedStatement ps = connection.prepareStatement(query);
+            PreparedStatement ps=connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 			while (rs.next()) {

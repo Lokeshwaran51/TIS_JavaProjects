@@ -1,0 +1,5 @@
+2024-05-06 16:35:11.559 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-06T11:06:11.539503800Z
+2024-05-06 16:35:12.066 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNDk5MzU3MSwiZXhwIjoxNzE0OTkzNTcxfQ.PAupSZTGPMYtGu3W6gAB8ngoP_FRFFNhsEf7rfgBMgs
+2024-05-06 16:35:12.210 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-06T11:06:11Z
+2024-05-06 16:35:12.211 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-06 16:35:12.213 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - javax.crypto.spec.SecretKeySpec@fa77f403

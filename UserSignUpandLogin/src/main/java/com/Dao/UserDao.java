@@ -22,7 +22,7 @@ public class UserDao {
 	}
 	
 	//Initialize DataSource
-	private void datasource_initialize() {
+	private void datasource_initialize(){
 		
 		InputStream inputStream=UserDao.class.getClassLoader().getResourceAsStream("DB.properties");
 		Properties properties=new Properties();
@@ -50,7 +50,7 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-	public Connection getConnection() {
+	public Connection getConnection() {  //Here Connection is return to Connection pool 
 		return con;	
 	}
 	
