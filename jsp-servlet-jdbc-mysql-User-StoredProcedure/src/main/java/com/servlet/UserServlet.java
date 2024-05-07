@@ -88,20 +88,20 @@ public class UserServlet extends HttpServlet {
         try {
             Class.forName(prop.getProperty("DB_Driver1"));
             Connection connection=DriverManager.getConnection(prop.getProperty("DB_Conn1"),prop.getProperty("DB_Uname1"),prop.getProperty("DB_Pass1"));
-            String query="select ImageName from user_form where id=?";
+            String query="select * from user_form where id=?";
             PreparedStatement ps=connection.prepareStatement(query);
             ps.setInt(1,id);
             ResultSet rs=ps.executeQuery();
-            if(rs.next()){
+            while(rs.next()){
                 ImageName=rs.getString("ImageName");
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        }catch(ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }      
-        if (ImageName!=null) {
+        if(ImageName!=null){
             request.setAttribute("ImageName", ImageName);       
             request.getRequestDispatcher("ImageDisplay.jsp").forward(request,response);
-        } else {
+        }else{
             PrintWriter out=response.getWriter();
             out.println("Image Not Found...");
         }
@@ -135,13 +135,13 @@ public class UserServlet extends HttpServlet {
                         writefile.write(data);
                         imageName.add(imagepath);
                     }
-                }
+                }		
             }
             String imageName1=String.join(", ", imageName);
             User newUser=new User(name, email, country, contact, gender, areaOfInterest1, imageName1);
             userDAO.insertUser(newUser);
             log.info("New User Record Inserted Successfully...");
-            response.sendRedirect("listUser");
+            response.sendRedirect("list");
         }
     }
 
@@ -162,7 +162,7 @@ public class UserServlet extends HttpServlet {
         User user = new User(id, name, email, country, contact, gender, areaOfInterest1,ImageName1);
         userDAO.updateUser(user);
         log.info("User id :"+id+" Record Updated Successfully...");
-        response.sendRedirect("listUser");
+        response.sendRedirect("list");
     }
 
     //Delete User
@@ -170,7 +170,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException {
         int id=Integer.parseInt(request.getParameter("id"));
         userDAO.deleteUser(id);
-        response.sendRedirect("listUser");
+        response.sendRedirect("list");
     }
    
     private void listUser(HttpServletRequest request, HttpServletResponse response)
@@ -189,7 +189,7 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         int id=Integer.parseInt(request.getParameter("id"));
         User existingUser=userDAO.selectUser(id);   
-        request.setAttribute("existingUser", existingUser);
+        request.setAttribute("user", existingUser);
         request.getRequestDispatcher("user-form.jsp").forward(request, response);
     }
 }

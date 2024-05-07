@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class UserDAO {
+import org.apache.logging.log4j.LogManager;
+
+public class UserDAO{
 	private HikariDataSource dataSource;
 	private Connection connection;
 	
@@ -22,6 +24,8 @@ public class UserDAO {
     private static final String UPDATE_USER_SQL="{call UpdateUser(?, ?, ?, ?, ?, ?, ?,?)}";
     
     private static final String Email_Exists="{call UserExists_UserForm(?)}";
+    
+    private static final org.apache.logging.log4j.Logger logger=LogManager.getLogger(UserDAO.class);
 
     public UserDAO() {
     	initializeDataSource();
@@ -51,10 +55,10 @@ public class UserDAO {
     
     
  //Initialize Connection
-    private Connection initializeConnection()  {
+    private Connection initializeConnection(){
     	try {
 			 connection=dataSource.getConnection();
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}	
     	return connection;
@@ -100,7 +104,7 @@ public class UserDAO {
             cs.setString(6, user.getGender());
             cs.setString(7, user.getAreaOfInterest());
             cs.setString(8, user.getImageName());
-            System.out.println("Updating User: " + user); 
+            logger.info("Updating User: " + user); 
             rowUpdated = cs.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -153,7 +157,7 @@ public class UserDAO {
     } 
     
     //User Email and Contact Validation
-	public boolean validateuseremail(String email) {
+	public boolean validateuseremail(String email){
 		boolean emailExists=false;
 		try {
 			CallableStatement cs=connection.prepareCall(Email_Exists);

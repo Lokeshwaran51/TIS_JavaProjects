@@ -71,7 +71,7 @@
             <th>Gender</th>
          	<th>FileName</th>
             <th>AreaOfInterest</th>
-            <th>Actions</th>
+            <th style="width:150px">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -90,8 +90,8 @@
 		    <td><a href="<%= request.getContextPath() %>/display image?id=<%= user.getId() %>" onclick="<%= user.getImageName() %>?');"style="text-decoration:none"><%= user.getImageName() %></a></td>
 		    <td><%= user.getAreaOfInterest() %></td>
 		    <td>
-		        <a href="<%= request.getContextPath() %>/edit?id=<%= user.getId() %>" style="text-decoration:none;">Edit</a>
-		        <a href="javascript:void(0);" onclick="confirmDelete('<%= user.getId() %>');" style="text-decoration:none;">Delete</a><br/>
+		        <a href="<%=request.getContextPath()%>/edit?id=<%=user.getId()%>" style="text-decoration:none;">Edit</a>|
+		        <a href="javascript:void(0);" onclick="confirmDelete('<%=user.getId()%>');"style="text-decoration:none;">Delete</a><br/>
 		    </td>
 	</tr>
         <%
