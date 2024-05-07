@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
+import org.apache.logging.log4j.Logger;
 
 import com.dao.UserDAO;
 import com.model.User;
@@ -33,19 +33,19 @@ import jakarta.servlet.http.Part;
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public UserDAO userDAO;
-    private static final Logger log=(Logger) LogManager.getLogger(UserServlet.class);
+    private static final Logger log = LogManager.getLogger(UserServlet.class);
 
     public void init() throws ServletException {
         userDAO = new UserDAO();
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-    doPost(request,response);
+        doPost(request,response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-    	
         String action = request.getServletPath();
         try {
             switch (action) {
@@ -65,8 +65,8 @@ public class UserServlet extends HttpServlet {
                     updateUser(request, response);
                     break;
                 case "/display image":
-                	DisplayImage(request,response);
-                	break;
+                    DisplayImage(request,response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
