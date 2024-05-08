@@ -11,7 +11,7 @@
         <form action="DisplayServlet" method="post" enctype="multipart\form-data">
             <b>Enter Image Id:</b> <input type="number" name="id" /> 
             <input type="submit">
-            <hr />
+            <hr/>
             <table border="2">
                 <tr>    
                     <th>ImageId</th>

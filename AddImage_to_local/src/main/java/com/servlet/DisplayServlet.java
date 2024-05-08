@@ -22,7 +22,6 @@ public class DisplayServlet extends HttpServlet {
          String DB_Password = "root@12345";
          
          PrintWriter pw=response.getWriter();
-    	
     	int id = Integer.parseInt(request.getParameter("id"));
     	
         int imgId=0;
@@ -34,7 +33,7 @@ public class DisplayServlet extends HttpServlet {
             PreparedStatement ps=connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
+			while(rs.next()){
 				if (rs.getInt("image_id") == id) {
 					imgId = rs.getInt("image_id");
 					imageFileName = rs.getString("images_fName");
