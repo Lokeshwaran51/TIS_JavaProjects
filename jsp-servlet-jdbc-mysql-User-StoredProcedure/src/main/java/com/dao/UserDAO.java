@@ -12,20 +12,20 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UserDAO{
 	private HikariDataSource dataSource;
 	private Connection connection;
-	
+
     private static final String INSERT_USER_SQL="{call InsertUser(?, ?, ?, ?, ?, ?,?)}";   //CALL Statement is used to execute stored Procedure
     private static final String SELECT_USER_BY_ID="{call SelectUserById(?)}";   //Private access modifier is used to we can access within the class
     private static final String SELECT_ALL_USER="{call SelectAllUsers()}";
     private static final String DELETE_USER_SQL="{call DeleteUserById(?)}";
     private static final String UPDATE_USER_SQL="{call UpdateUser(?, ?, ?, ?, ?, ?, ?,?)}";
     
-    private static final String Email_Exists="{call UserExists_UserForm(?)}";
-    
-    private static final org.apache.logging.log4j.Logger logger=LogManager.getLogger(UserDAO.class);
+    private static final String Email_Exists="{call UserExists_UserForm(?)}"; 
+    private static final Logger log=LogManager.getLogger(UserDAO.class);
 
     public UserDAO() {
     	initializeDataSource();
@@ -33,8 +33,7 @@ public class UserDAO{
     }
     
   //Initialize datasource
-    private void initializeDataSource() {
-  
+    private void initializeDataSource() { 
     	InputStream is=UserDAO.class.getClassLoader().getResourceAsStream("UserForm.properties"); //Read Data from properties file
     	Properties prop=new Properties();
     	try {
@@ -51,8 +50,7 @@ public class UserDAO{
         config.setMinimumIdle(5);
         config.setMaximumPoolSize(15);
         dataSource = new HikariDataSource(config);
-    }
-    
+    }   
     
  //Initialize Connection
     private Connection initializeConnection(){
@@ -104,7 +102,7 @@ public class UserDAO{
             cs.setString(6, user.getGender());
             cs.setString(7, user.getAreaOfInterest());
             cs.setString(8, user.getImageName());
-            logger.info("Updating User: " + user); 
+            log.info("Updating User: " + user); 
             rowUpdated = cs.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -115,7 +113,7 @@ public class UserDAO{
     //Select User By id
     public User selectUser(int id) {
         User user = null;
-        try (CallableStatement cs = connection.prepareCall(SELECT_USER_BY_ID)) {
+        try (CallableStatement cs=connection.prepareCall(SELECT_USER_BY_ID)) {
             cs.setInt(1, id);        //Set() method is used to setValues in preparedStatement or callableStatement before Executing it
             ResultSet rs = cs.executeQuery();
             while (rs.next()) {

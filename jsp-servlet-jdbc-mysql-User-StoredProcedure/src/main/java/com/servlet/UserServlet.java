@@ -3,7 +3,6 @@ package com.servlet;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,13 +28,13 @@ import jakarta.servlet.http.Part;
 
 @WebServlet("/")
 @MultipartConfig(maxFileSize=100*1024*1024)
-public class UserServlet extends HttpServlet {
+public class UserServlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
     public UserDAO userDAO;
-    private static final Logger log = LogManager.getLogger(UserServlet.class);
+    private static final Logger log=LogManager.getLogger(UserServlet.class);
 
     public void init() throws ServletException {
-        userDAO = new UserDAO();
+        userDAO=new UserDAO();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -102,8 +100,7 @@ public class UserServlet extends HttpServlet {
             request.setAttribute("ImageName", ImageName);       
             request.getRequestDispatcher("ImageDisplay.jsp").forward(request,response);
         }else{
-            PrintWriter out=response.getWriter();
-            out.println("Image Not Found...");
+            log.info("Image Not Found...");
         }
     }
       
@@ -120,7 +117,7 @@ public class UserServlet extends HttpServlet {
         
         if(userDAO.validateuseremail(email)){
             request.setAttribute("error", "Email or contact is already exists. Please try with another...");
-            request.getRequestDispatcher("user-form.jsp").forward(request, response);
+            request.getRequestDispatcher("InsertUser.jsp").forward(request, response);
         }else{
             List<String> imageName=new ArrayList<>(); // List to store image filenames
             Collection<Part> parts=request.getParts(); // Using Collection for type compatibility
@@ -170,6 +167,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException {
         int id=Integer.parseInt(request.getParameter("id"));
         userDAO.deleteUser(id);
+        log.info("User id :"+id+" Record Deleted Successfully.");
         response.sendRedirect("list");
     }
    
@@ -182,7 +180,7 @@ public class UserServlet extends HttpServlet {
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	request.getRequestDispatcher("user-form.jsp").forward(request, response);
+    	request.getRequestDispatcher("InsertUser.jsp").forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
@@ -190,6 +188,6 @@ public class UserServlet extends HttpServlet {
         int id=Integer.parseInt(request.getParameter("id"));
         User existingUser=userDAO.selectUser(id);   
         request.setAttribute("user", existingUser);
-        request.getRequestDispatcher("user-form.jsp").forward(request, response);
+        request.getRequestDispatcher("UpdateUser.jsp").forward(request, response);
     }
 }

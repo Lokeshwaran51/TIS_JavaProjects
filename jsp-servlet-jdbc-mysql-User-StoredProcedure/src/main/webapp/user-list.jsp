@@ -54,7 +54,7 @@
 <header>
     <nav class="navbar navbar-expand-xl navbar-dark" >
         <div class="container"> 
-           <b> <a href="<%=request.getContextPath()%>/user-form.jsp" class="navbar-brand" style="color:black;border-radius:50%;text-decoration:underline">Add New User</a></b>
+           <b> <a href="<%=request.getContextPath()%>/InsertUser.jsp" class="navbar-brand" style="color:black;border-radius:50%;text-decoration:underline">Add New User</a></b>
            </div> 
           <h4 text-align="center">List Of Users</h4>
     </nav>
