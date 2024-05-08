@@ -1,0 +1,91 @@
+getrequestpath
+multiple parameters 
+value bind(done)
+while delete the data from it shows some warning(done)
+validation
+
+
+need to study about 
+1.form control
+2.class,value,name,type
+3.request.getContextPath
+4.requestDispatcher
+5.PreparedStatement
+6.ResultSet
+7.Connection
+8.executeUpdate
+9.executeQuery
+10.getCause
+
+
+12-02-2024
+
+1) validation
+2) drop down country- create country table get the values from table using stored procedure(Done)
+
+
+13-02-2024
+1) Add Gender field in form(Radio button)
+2) Add Area of Intrest Field in form(CheckBox)
+1.jsp code
+
+String gender = request.getParameter("gender");
+
+
+15-02-2024
+1.connection pooling
+
+
+16-02-2024
+1.JWT Token
+2.Oops Concept
+
+
+1.Udemy Course completion-S03L05
+
+
+19-02-2024
+
+1.Create SignUp page and create table users firstName,lastName,contact,email,password
+
+2.hash256
+
+20-02-2024
+
+1.password validation length should above 8,uppercase,lowercase,special Characters,numbers
+2.create sha256 algorithm using hashing the password
+
+
+
+Bootstrap Style using in crud operation
+
+<!-- <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+ -->
+
+
+
+
+
+
+issues in user registration form
+
+1.password validation
+2.it print space also
+
+Udemy
+            
+-Core Java- 1-93    
+  -Java Array - 130-225 
+-Java JSP and Servlet- 226-273
+-JavaScript- 412-460
+	-Async in javascript-461-470
+	-Management and extras-471-473
+-JSP,Servlet,JSTL-497-607  - 11.86 hr
+
+-WebServices-Restful API -608-636
+
+-Course Completion  till - 636 -43hr 6min in hours
+         

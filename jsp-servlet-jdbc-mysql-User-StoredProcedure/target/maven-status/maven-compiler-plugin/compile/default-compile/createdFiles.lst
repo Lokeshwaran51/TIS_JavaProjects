@@ -1,5 +1,3 @@
-com\servlet\ImageServlet.class
-com\dao\Driver_Config.class
 com\model\User.class
 com\servlet\UserServlet.class
 com\dao\UserDAO.class

@@ -15,9 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class UserDAO{
-	private HikariDataSource dataSource;
-	private Connection connection;
-
+	
     private static final String INSERT_USER_SQL="{call InsertUser(?, ?, ?, ?, ?, ?,?)}";   //CALL Statement is used to execute stored Procedure
     private static final String SELECT_USER_BY_ID="{call SelectUserById(?)}";   //Private access modifier is used to we can access within the class
     private static final String SELECT_ALL_USER="{call SelectAllUsers()}";
@@ -28,12 +26,11 @@ public class UserDAO{
     private static final Logger log=LogManager.getLogger(UserDAO.class);
 
     public UserDAO() {
-    	initializeDataSource();
-    	initializeConnection(); 	
-    }
+    	getConnection(); 	
+    }   
+	Connection connection; 
     
-  //Initialize datasource
-    private void initializeDataSource() { 
+    public Connection getConnection() {
     	InputStream is=UserDAO.class.getClassLoader().getResourceAsStream("UserForm.properties"); //Read Data from properties file
     	Properties prop=new Properties();
     	try {
@@ -43,24 +40,21 @@ public class UserDAO{
 		}
    
         HikariConfig config = new HikariConfig();
-        config.setDriverClassName(prop.getProperty("DB_Driver1"));  // Correct driver class name
-        config.setJdbcUrl(prop.getProperty("DB_Conn1"));  // Use DB_Driver for JDBC URL
+        config.setDriverClassName(prop.getProperty("DB_Driver1"));  //Load Driver
+        config.setJdbcUrl(prop.getProperty("DB_Conn1"));
         config.setUsername(prop.getProperty("DB_Uname1"));
         config.setPassword(prop.getProperty("DB_Pass1"));
         config.setMinimumIdle(5);
         config.setMaximumPoolSize(15);
-        dataSource = new HikariDataSource(config);
-    }   
+       HikariDataSource dataSource = new HikariDataSource(config);
+			try {
+				connection=dataSource.getConnection();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+        return connection;
+}
     
- //Initialize Connection
-    private Connection initializeConnection(){
-    	try {
-			 connection=dataSource.getConnection();
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}	
-    	return connection;
-	}
        	
    //Insert New User
 	public void insertUser(User user) {

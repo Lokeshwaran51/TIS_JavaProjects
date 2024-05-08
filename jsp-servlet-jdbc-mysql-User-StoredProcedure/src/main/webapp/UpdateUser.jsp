@@ -62,7 +62,7 @@ button a {
 <script>
 function validation(){
 	//Name Validation
-		var name=document.getElementById("name").value;
+		var name=document.updateform.name.value;
 		var nameError=document.getElementById("nameError");
 		
 		if(name.trim()===""||name==null){
@@ -78,7 +78,7 @@ function validation(){
 			 nameError.innerHTML = "";
 		}
 	//Email Validation	
-		var email=document.getElementById("email").value;
+		var email=document.updateform.email.value;
 		var emailError=document.getElementById("emailError");
 
 		if(email.trim()===""||email==null){
@@ -95,7 +95,7 @@ function validation(){
 		}
 		
 	//Contact Validation	
-		var contact = document.getElementById("contact").value;
+		var contact = document.updateform.contact.value;
 		var contactError = document.getElementById("contactError");
 
 		if (contact.trim() === "" || contact == null) {
@@ -120,7 +120,7 @@ function validation(){
     <%
     User user=(User)request.getAttribute("user");
     %>
-    <form action="<%=request.getContextPath()%>/update" method="POST" onsubmit="return validation()">
+    <form action="<%=request.getContextPath()%>/update" name="updateform" method="POST" onsubmit="return validation()" enctype="multipart/form-data">
        <!--  <input type="hidden" name="_method" value="PUT"> -->
             <h2 align="center" style="text-decoration:underline">Update User</h2>       
         <div align="center">
@@ -198,7 +198,7 @@ function validation(){
                 </tr>
                 <tr>
                     <td><b>Upload File:</b></td>
-                    <td><input type="file" name="ImageName" <%=(user!=null && user.getImageName()!=null) ? "multiple":""%>multiple required></td>
+                    <td><input type="file" name="ImageName" <%=(user!=null && user.getImageName()!=null)%> multiple required></td>
                 </tr>
             </table>
             <button type="submit" style="padding: 5px 100px" class="btn btn-primary">Update</button>

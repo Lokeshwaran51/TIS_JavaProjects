@@ -12,14 +12,14 @@
                 <th>ImageName</th>
             </tr>
             <% 
-            String imgFileName = (String) request.getAttribute("ImageName");     
-            if (imgFileName != null && !imgFileName.isEmpty()) {
+            String imgFileName=(String) request.getAttribute("ImageName");     
+            if (imgFileName!=null && !imgFileName.isEmpty()) {
             %>
             <tr>
-                <td><img src="Files/<%= imgFileName %>" style="width: 500px; height: 550px;"></td>
+                <td><img src="Files/<%=imgFileName%>" style="width:500px;height:550px"></td>
             </tr>
             <% 
-            } else {
+            }else{
             %>
             <tr>
                 <td>No image found.</td>

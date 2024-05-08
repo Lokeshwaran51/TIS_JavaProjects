@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>User Management Form</title>
 <link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -62,7 +62,7 @@ button a {
 <script>
 function validation(){
 	//Name Validation
-		var name=document.getElementById("name");
+		var name=document.insertform.name.value;
 		var nameError=document.getElementById("nameError");
 		
 		if(name.trim()===""||name==null){
@@ -78,7 +78,7 @@ function validation(){
 			 nameError.innerHTML = "";
 		}
 	//Email Validation	
-		var email=document.getElementById("email");
+		var email=document.insertform.email.value;
 		var emailError=document.getElementById("emailError");
 
 		if(email.trim()===""||email==null){
@@ -95,7 +95,7 @@ function validation(){
 		}
 		
 	//Contact Validation	
-		var contact = document.getElementById("contact");
+		var contact = document.insertform.contact.value;
 		var contactError = document.getElementById("contactError");
 
 		if (contact.trim() === "" || contact == null) {
@@ -117,7 +117,7 @@ function validation(){
 
 </head>
 <body>
-    <form action="<%= request.getContextPath() %>/insert" method="POST" onsubmit="return validation()" enctype="multipart/form-data">
+    <form action="<%= request.getContextPath() %>/insert" name="insertform" method="POST" onsubmit="return validation()" enctype="multipart/form-data">
             <h2 align="center" style="text-decoration:underline">Add New User</h2>
         <div align="center">
             <table>

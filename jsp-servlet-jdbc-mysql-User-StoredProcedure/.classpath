@@ -43,9 +43,8 @@
 			<attribute name="javadoc_location" value="https://jakarta.ee/specifications/servlet/5.0/apidocs/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="/UserSignUpandLogin"/>
-	<classpathentry kind="src" path="/JWT-demo"/>
 	<classpathentry kind="lib" path="C:/Users/lokeshwarans/Downloads/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/lokeshwarans/Downloads/commons-io-2.4.jar"/>
+	<classpathentry kind="src" path="/UserSignUpandLogin"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
