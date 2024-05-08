@@ -62,7 +62,7 @@ button a {
 <script>
 function validation(){
 	//Name Validation
-		var name=document.getElementById("name").value;
+		var name=document.getElementById("name");
 		var nameError=document.getElementById("nameError");
 		
 		if(name.trim()===""||name==null){
@@ -78,7 +78,7 @@ function validation(){
 			 nameError.innerHTML = "";
 		}
 	//Email Validation	
-		var email=document.getElementById("email").value;
+		var email=document.getElementById("email");
 		var emailError=document.getElementById("emailError");
 
 		if(email.trim()===""||email==null){
@@ -95,7 +95,7 @@ function validation(){
 		}
 		
 	//Contact Validation	
-		var contact = document.getElementById("contact").value;
+		var contact = document.getElementById("contact");
 		var contactError = document.getElementById("contactError");
 
 		if (contact.trim() === "" || contact == null) {
@@ -117,9 +117,6 @@ function validation(){
 
 </head>
 <body>
-	<%
-    User user=(User)request.getAttribute("user");
-    %>
     <form action="<%= request.getContextPath() %>/insert" method="POST" onsubmit="return validation()" enctype="multipart/form-data">
             <h2 align="center" style="text-decoration:underline">Add New User</h2>
         <div align="center">
