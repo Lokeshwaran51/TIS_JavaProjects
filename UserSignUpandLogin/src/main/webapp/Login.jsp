@@ -74,7 +74,6 @@
             box-shadow: 0 0 10px rgba(1.0, 1.0, 1.0, 1.0);
             padding: 20px;
             width: 300px;
-            /* Increased height for better visibility */
             height: 360px;
         }
 
@@ -136,7 +135,7 @@
 </head>
 <body>
     <div>
-        <form action="login" method="post" name="form" onsubmit="return validate()" style="background-color:#99ffcc">
+        <form action="login" method="post" name="form" onsubmit="return validate()">
             <h2>Login Here</h2>
             <table>
                 <tr>

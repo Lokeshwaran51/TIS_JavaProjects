@@ -42,10 +42,12 @@ public class RegisterServlet extends HttpServlet {
                 out.println("alert('User with this email is already exists. Please login to continue.');");
                 out.println("window.location.replace('Login.jsp');");
                 out.println("</script>");
+//                out.println("User with this email is already exists. Please login to continue.");
+//                request.getRequestDispatcher("Register.jsp").forward(request, response);
 
               logger.info("User with this email is already exists. Please login to continue.");
                 return; // Return to prevent further execution
-            } 
+            }
             else {
                 userModel usermodel = new userModel(firstName, lastName, contact, address, email, password);
                 userDAO.insert(usermodel);
@@ -55,6 +57,8 @@ public class RegisterServlet extends HttpServlet {
                 out.println("alert('User Registered Successfully. Please login to continue..');");
                 out.println("window.location.replace('Login.jsp');");
                 out.println("</script>");
+//                out.println("User Registered Successfully. Please login to continue..");
+//                request.getRequestDispatcher("Login.jsp").include(request, response);
 
                logger.info("User Registered Successfully. Please login to continue..");
             }

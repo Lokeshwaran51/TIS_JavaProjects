@@ -3,3 +3,81 @@
 2024-05-06 16:35:12.210 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-06T11:06:11Z
 2024-05-06 16:35:12.211 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
 2024-05-06 16:35:12.213 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - javax.crypto.spec.SecretKeySpec@fa77f403
+2024-05-07 09:31:33.986 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-07T04:02:33.947565100Z
+2024-05-07 09:31:35.283 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTA1NDU1MywiZXhwIjoxNzE1MDU0NTUzfQ.U0QEMAkYHS6ynMXlJTihsLoqZphqkbl8itodddpyUyE
+2024-05-07 09:31:35.669 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-07T04:02:33Z
+2024-05-07 09:31:35.671 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-07 09:31:35.677 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - javax.crypto.spec.SecretKeySpec@5882dcb
+2024-05-07 09:34:37.683 [http-nio-8080-exec-8] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 09:34:52.458 [http-nio-8080-exec-9] INFO  com.Servlet.LoginServlet - User entered wrong credentials,please enter correctly....
+2024-05-07 09:35:40.585 [http-nio-8080-exec-4] INFO  com.Servlet.RegisterServlet - User Registered Successfully. Please login to continue..
+2024-05-07 09:35:56.163 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-07T04:06:56.163342100Z
+2024-05-07 09:35:56.182 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcnNhdGgwMUBnbWFpbC5jb20iLCJpYXQiOjE3MTUwNTQ4MTYsImV4cCI6MTcxNTA1NDgxNn0.bf-9PaBm22RlSEHiULVJ40rREURSJ1fuzUrMqQkMPKo
+2024-05-07 09:35:56.195 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-07T04:06:56Z
+2024-05-07 09:35:56.196 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-07 09:35:56.196 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - javax.crypto.spec.SecretKeySpec@5882dcb
+2024-05-07 14:53:54.816 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - User entered wrong credentials,please enter correctly....
+2024-05-07 14:54:10.395 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-07T09:25:10.362713Z
+2024-05-07 14:54:11.356 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTA3MzkxMCwiZXhwIjoxNzE1MDczOTEwfQ.SBbkNpqv1BwgLsNVqBU2GlUhguTFo3qAXBOljjmEeeY
+2024-05-07 14:54:11.626 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-07T09:25:10Z
+2024-05-07 14:54:11.627 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-07 14:54:11.632 [http-nio-8080-exec-7] INFO  com.Servlet.LoginServlet - javax.crypto.spec.SecretKeySpec@5880f57
+2024-05-07 14:58:50.670 [http-nio-8080-exec-6] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 14:59:31.506 [http-nio-8080-exec-10] INFO  com.Servlet.RegisterServlet - User Registered Successfully. Please login to continue..
+2024-05-07 15:16:36.382 [http-nio-8080-exec-4] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:18:01.643 [http-nio-8080-exec-3] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:18:53.047 [http-nio-8080-exec-3] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:19:53.201 [http-nio-8080-exec-6] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:19:58.068 [http-nio-8080-exec-3] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:20:35.647 [http-nio-8080-exec-2] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:21:37.502 [http-nio-8080-exec-4] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:25:52.601 [http-nio-8080-exec-3] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:26:58.579 [http-nio-8080-exec-3] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:35:19.185 [http-nio-8080-exec-4] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:35:44.879 [http-nio-8080-exec-8] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:35:57.829 [http-nio-8080-exec-2] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:36:22.194 [http-nio-8080-exec-9] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:36:40.081 [http-nio-8080-exec-6] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:37:01.497 [http-nio-8080-exec-15] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 15:37:56.764 [http-nio-8080-exec-3] INFO  com.Servlet.RegisterServlet - User with this email is already exists. Please login to continue.
+2024-05-07 17:27:06.224 [http-nio-8080-exec-10] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-07T11:58:06.203117300Z
+2024-05-07 17:27:06.671 [http-nio-8080-exec-10] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTA4MzA4NiwiZXhwIjoxNzE1MDgzMDg2fQ.sMC_OiP0Ss_VpkPYRHi8qo0dUtq1fSthzdrwXJn5T40
+2024-05-07 17:27:06.789 [http-nio-8080-exec-10] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-07T11:58:06Z
+2024-05-07 17:27:06.789 [http-nio-8080-exec-10] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-07 17:27:06.791 [http-nio-8080-exec-10] INFO  com.Servlet.LoginServlet - javax.crypto.spec.SecretKeySpec@fa77c91d
+2024-05-08 16:23:13.545 [http-nio-8080-exec-2] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T10:54:13.496016600Z
+2024-05-08 16:23:14.452 [http-nio-8080-exec-2] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE2NTY1MywiZXhwIjoxNzE1MTY1NjUzfQ.jCsdC-3LCJSfi6Oug6IeqZGW95FMWM7-10ypk1lADTY
+2024-05-08 16:23:14.824 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T10:54:14.824504700Z
+2024-05-08 16:23:14.826 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE2NTY1NCwiZXhwIjoxNzE1MTY1NjU0fQ.JysYhzCl4Y4rkffj4djc3ieLneu2MKwI2jodiZjcKPk
+2024-05-08 16:23:14.863 [http-nio-8080-exec-2] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-08T10:54:13Z
+2024-05-08 16:23:14.863 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-08T10:54:14Z
+2024-05-08 16:23:14.864 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 16:23:14.864 [http-nio-8080-exec-2] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 16:26:36.934 [http-nio-8080-exec-8] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T10:57:36.905264900Z
+2024-05-08 16:26:37.638 [http-nio-8080-exec-8] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE2NTg1NiwiZXhwIjoxNzE1MTY1ODU2fQ.k5136gDZamxwAS_hx_G_QeJxp5BP5qyncth36pma8aI
+2024-05-08 16:26:37.896 [http-nio-8080-exec-8] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-08T10:57:36Z
+2024-05-08 16:26:37.897 [http-nio-8080-exec-8] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 16:27:28.087 [http-nio-8080-exec-5] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T10:58:28.078689800Z
+2024-05-08 16:27:28.752 [http-nio-8080-exec-5] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE2NTkwOCwiZXhwIjoxNzE1MTY1OTA4fQ.2Fk-f0Mr0DX3mO6c_Pusy3HkSGCnEhylMBz2NvPjKDE
+2024-05-08 16:27:28.915 [http-nio-8080-exec-5] INFO  com.Servlet.LoginServlet - Token Expiration Time (parsed): 2024-05-08T10:58:28Z
+2024-05-08 16:27:28.915 [http-nio-8080-exec-5] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 16:30:14.230 [http-nio-8080-exec-16] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T11:01:14.223750300Z
+2024-05-08 16:30:15.025 [http-nio-8080-exec-16] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE2NjA3NCwiZXhwIjoxNzE1MTY2MDc0fQ.IiC-ctwDGUH7Pvr5Iipn3hbae_vW5isgxrrjihC0M5I
+2024-05-08 16:30:15.150 [http-nio-8080-exec-16] INFO  com.Servlet.LoginServlet - Token Expiration Time: 2024-05-08T11:01:14Z
+2024-05-08 16:30:15.151 [http-nio-8080-exec-16] INFO  com.Servlet.LoginServlet - Secret Key: javax.crypto.spec.SecretKeySpec@5882d91
+2024-05-08 16:30:15.151 [http-nio-8080-exec-16] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 17:48:04.204 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T12:19:04.170185500Z
+2024-05-08 17:48:05.161 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE3MDc0NCwiZXhwIjoxNzE1MTcwNzQ0fQ.gYlOBwlibe8eLczDaz8n02bd2YDrUYCuX2uCCAbPonk
+2024-05-08 17:48:05.434 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Token Expiration Time: 2024-05-08T12:19:04Z
+2024-05-08 17:48:05.435 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - Secret Key: javax.crypto.spec.SecretKeySpec@fa77d21f
+2024-05-08 17:48:05.436 [http-nio-8080-exec-3] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 18:13:17.963 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T12:44:17.934252600Z
+2024-05-08 18:13:17.963 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Token Issued At: 2024-05-08T12:44:17.934252600Z
+2024-05-08 18:13:18.938 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE3MjI1NywiZXhwIjoxNzE1MTcyMjU3fQ.E8iVHDxDanmhb5Enyo3TFoDDApbFbLoMnwyH2XelaAQ
+2024-05-08 18:13:18.938 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Generated Token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbG9rZXNoMjgyMDAxQGdtYWlsLmNvbSIsImlhdCI6MTcxNTE3MjI1NywiZXhwIjoxNzE1MTcyMjU3fQ.E8iVHDxDanmhb5Enyo3TFoDDApbFbLoMnwyH2XelaAQ
+2024-05-08 18:13:19.190 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Token Expiration Time: 2024-05-08T12:44:17Z
+2024-05-08 18:13:19.190 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Token Expiration Time: 2024-05-08T12:44:17Z
+2024-05-08 18:13:19.190 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - Secret Key: javax.crypto.spec.SecretKeySpec@58865d1
+2024-05-08 18:13:19.190 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - Secret Key: javax.crypto.spec.SecretKeySpec@58865d1
+2024-05-08 18:13:19.191 [http-nio-8080-exec-4] INFO  com.Servlet.LoginServlet - User Logged in Successfully.
+2024-05-08 18:13:19.191 [http-nio-8080-exec-6] INFO  com.Servlet.LoginServlet - User Logged in Successfully.

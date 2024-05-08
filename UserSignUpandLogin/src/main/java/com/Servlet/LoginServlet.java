@@ -11,13 +11,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.security.Key;
 import java.sql.SQLException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,13 +26,10 @@ import com.Dao.UserDao;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     // Use a secure key with sufficient size for HS256
-    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Header
+    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static final long EXPIRATION_TIME_MINUTES = 1; // set expire time 1 minute
     private static final Logger logger=LogManager.getLogger(LoginServlet.class);
     
-//    InputStream is=LoginServlet.class.getClassLoader().getResourceAsStream("SecretKey.properties");
-//    Properties properties=new Properties();
-//    properties.load(is);
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");
@@ -58,10 +53,10 @@ public class LoginServlet extends HttpServlet {
 			    }
 			    response.sendRedirect(request.getContextPath() + "/Success.jsp");
 			    logger.info("User Logged in Successfully.");
-			    logger.info(SECRET_KEY);			    
+			    			    
 			    } else {	
 			    request.setAttribute("error", "User entered wrong credentials,please enter correctly....");
-			    request.getRequestDispatcher("/Login.jsp").forward(request, response);
+			    request.getRequestDispatcher("/Login.jsp").include(request, response);
 			    logger.info("User entered wrong credentials,please enter correctly....");
 			}
 		} catch (SQLException e) {
@@ -97,7 +92,8 @@ public class LoginServlet extends HttpServlet {
                     .getBody()  //method is used to retrieve the claims (payload) of a parsed JWT.
                     .getExpiration()  //it is used to return expiration time of the token.
                     .toInstant();  //instant it returns current time.            
-            logger.info("Token Expiration Time (parsed): " + expire);
+            logger.info("Token Expiration Time: " + expire);
+            logger.info("Secret Key: "+SECRET_KEY);
             return expire.isBefore(Instant.now());
         } catch (Exception e) {
             return true;
