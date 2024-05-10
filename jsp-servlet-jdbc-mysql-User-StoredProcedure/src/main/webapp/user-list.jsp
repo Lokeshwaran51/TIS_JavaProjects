@@ -14,7 +14,7 @@
     <script>
         function confirmDelete(id) {
             var confirmDelete = confirm("Are you sure you want to delete this user?");
-            if (confirmDelete) {
+            if (confirmDelete){
                 window.location.href = "<%=request.getContextPath()%>/delete?id=" + id;
             }
         }
@@ -77,8 +77,8 @@
         <tbody>
         <%
             List<User> listUser =(List<User>) request.getAttribute("listUser");
-            if (listUser!=null) {
-                for (User user:listUser) {
+            if(listUser!=null){
+                for(User user:listUser){
         %>
 		 <tr>
 		    <td><%= user.getId() %></td>
@@ -87,7 +87,7 @@
 		    <td><%= user.getCountry() %></td>
 		    <td><%= user.getContact() %></td>
 		    <td><%= user.getGender() %></td>
-		    <td><a href="<%= request.getContextPath() %>/display image?id=<%= user.getId() %>" onclick="<%= user.getImageName() %>?');"style="text-decoration:none"><%= user.getImageName() %></a></td>
+		    <td><a href="<%=request.getContextPath()%>/display image?id=<%= user.getId()%>" onclick="<%=user.getImageName()%>" style="text-decoration:none"><%= user.getImageName() %></a></td>
 		    <td><%= user.getAreaOfInterest() %></td>
 		    <td>
 		        <a href="<%=request.getContextPath()%>/edit?id=<%=user.getId()%>" style="text-decoration:none;">Edit</a>|

@@ -16,7 +16,7 @@
             if (imgFileName!=null && !imgFileName.isEmpty()) {
             %>
             <tr>
-                <td><img src="Files/<%=imgFileName%>" style="width:500px;height:550px"></td>
+                <td><img src="/jsp-servlet-jdbc-mysql-User-StoredProcedure/src/main/webapp/Files/<%=imgFileName%>" style="width:500px;height:550px"></td>
             </tr>
             <% 
             }else{

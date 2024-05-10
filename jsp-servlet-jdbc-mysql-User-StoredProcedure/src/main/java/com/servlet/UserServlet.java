@@ -30,23 +30,19 @@ import jakarta.servlet.http.Part;
 @MultipartConfig(maxFileSize = 100 * 1024 * 1024)
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public UserDAO userDAO;
+	
 	private static final Logger log = LogManager.getLogger(UserServlet.class);
-
-	public void init() throws ServletException {
-		userDAO = new UserDAO();
-	}
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		doPost(request, response);
 	}
-
+	UserDAO userDAO= new UserDAO();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		String action = request.getServletPath();
 		try {
-			switch (action) {
+			switch (action){
 			case "/new":
 				showNewForm(request, response);
 				break;
@@ -83,16 +79,16 @@ public class UserServlet extends HttpServlet {
 			InputStream input = UserServlet.class.getClassLoader().getResourceAsStream("UserForm.properties"); // Reading information from properties file																					
 			Properties prop = new Properties();
 			prop.load(input);
-
+			
 			String ImageName = null;
 			try {
 				Class.forName(prop.getProperty("DB_Driver1"));
 				Connection connection = DriverManager.getConnection(prop.getProperty("DB_Conn1"),prop.getProperty("DB_Uname1"), prop.getProperty("DB_Pass1"));
-				String query = "select * from user_form where id=?";
+				String query = "select ImageName from user_form where id=?";
 				PreparedStatement ps = connection.prepareStatement(query);
 				ps.setInt(1, id);
 				ResultSet rs = ps.executeQuery();
-				while (rs.next()) {
+				while(rs.next()){
 					ImageName = rs.getString("ImageName");
 				}
 			} catch (ClassNotFoundException | SQLException e) {
@@ -119,16 +115,16 @@ public class UserServlet extends HttpServlet {
 			String contact = request.getParameter("contact");
 			String gender = request.getParameter("gender");
 			String[] areaOfInterest = request.getParameterValues("areaOfInterest");
-			String areaOfInterest1 = (areaOfInterest != null) ? String.join(", ", areaOfInterest) : null;
+			String areaOfInterest1 = (areaOfInterest != null) ? String.join(", ", areaOfInterest): null;
 
-			if (userDAO.validateuseremail(email)) {
+			if(userDAO.validateuseremail(email)){
 				request.setAttribute("error", "Email or contact is already exists. Please try with another...");
 				request.getRequestDispatcher("InsertUser.jsp").forward(request, response);
-			} else {
-				List<String> imageName = new ArrayList<>(); // List to store image filenames
-				Collection<Part> parts = request.getParts(); // Using Collection for type compatibility
-				for (Part part : parts) {
-					String imagepath = part.getSubmittedFileName(); // Get the filename of the selected image path
+			}else{
+				List<String> imageName=new ArrayList<>(); // List to store image filenames
+				Collection<Part> parts=request.getParts(); //
+				for(Part part : parts){
+					String imagepath=part.getSubmittedFileName(); // Get the filename of the selected image path
 					if (imagepath != null && !imagepath.isEmpty()) {
 						String uploadPath = "C:/Users/lokeshwarans/Desktop/Thapovan_Projects/TIS_JavaProjects/jsp-servlet-jdbc-mysql-User-StoredProcedure/src/main/webapp/Files/"+ imagepath;
 						try (FileOutputStream writefile = new FileOutputStream(uploadPath)) {
@@ -139,7 +135,7 @@ public class UserServlet extends HttpServlet {
 							imageName.add(imagepath);
 						}
 					}
-					else {
+					else{
 						log.info("File not Found");
 					}
 				}
@@ -181,7 +177,7 @@ public class UserServlet extends HttpServlet {
 						imageName.add(imagepath);
 					}
 				}
-				else {
+				else{
 					log.info("File Not Found");
 				}
 			}

@@ -111,6 +111,26 @@ function validation(){
 		else{
 			 nameError.innerHTML = "";
 		}
+		
+		//Gender Validation
+		var gender=document.updateform.gender.value;
+		var genderError=document.getElementById("genderError");
+		
+		if(gender.trim()===""||gender==null){
+			genderError.innerHTML="Gender field is required please select..";
+			return false;
+		}else{
+			genderError.innerHTML="";
+		}
+		//CheckBox Validation
+		 var areaOfInterest=document.querySelectorAll('input[name="areaOfInterest"]:checked');
+		    if (areaOfInterest.length === 0){
+		        document.getElementById("areaOfInterestError").innerHTML = "Please select at least one checkbox.";
+		        return false;
+		    } else {
+		        document.getElementById("areaOfInterestError").innerHTML = "";
+		    }
+		
 		return true;
 	}
 </script>
@@ -121,7 +141,6 @@ function validation(){
     User user=(User)request.getAttribute("user");
     %>
     <form action="<%=request.getContextPath()%>/update" name="updateform" method="POST" onsubmit="return validation()" enctype="multipart/form-data">
-       <!--  <input type="hidden" name="_method" value="PUT"> -->
             <h2 align="center" style="text-decoration:underline">Update User</h2>       
         <div align="center">
             <table>
@@ -133,24 +152,24 @@ function validation(){
 					</td>
 				</tr>
 				<tr>
-                    <td><input type="hidden" name="id" id="id" value="${user!=null ? user.getId():''}" /></td>
+                    <td><input type="hidden" name="id" id="id" value="<%=user!=null ? user.getId():""%>" /></td>
                 </tr>
                 <tr>
                     <td><b>Name :</b></td>
-                    <td><input type="text" id="name" value="${user!=null ? user.getName():''}" class="form-control" name="name">
+                    <td><input type="text" id="name" value="<%=user!=null ? user.getName():""%>" class="form-control" name="name">
                     <span id="nameError" style="color:red"></span>
                     </td>
                 </tr>
                 <tr>
                     <td><b>Email :</b></td>
                     <td>
-                        <input type="email" id="email" value="${user!=null ? user.getEmail():''}" class="form-control" name="email">
+                        <input type="email" id="email" value="<%=user!=null ? user.getEmail():""%>" class="form-control" name="email">
                         <span id="emailError" style="color: red"></span>
                     </td>
                 </tr>
                 <tr>
                     <td><b>Contact :</b></td>
-                    <td><input type="text" id="contact" value="${user!=null ? user.getContact():''}" class="form-control" name="contact">
+                    <td><input type="text" id="contact" value="<%=user!=null ? user.getContact():""%>" class="form-control" name="contact">
                     <span id="contactError" style="color:red"></span>
                     </td>
                 </tr>
@@ -168,8 +187,8 @@ function validation(){
                                     while (rs.next()) {
                                         String name = rs.getString("country_Name");
                                         %>
-                                        <option value="<%= name %>" 
-                                            <%= (user!=null && name.equals(user.getCountry())) ? "selected" : "" %>><%= name %></option>
+                                        <option value="<%=name%>" 
+                                            <%=(user!=null && name.equals(user.getCountry())) ? "selected" : "" %>><%=name%></option>
                                         <%
                                     }
                                 } catch(Exception e) { 
@@ -182,8 +201,8 @@ function validation(){
                 <tr>
                     <td><b>Gender: </b></td>
                     <td>
-                        <input type="radio" value="male" id="male" name="gender" <%=(user!=null &&"male".equals(user.getGender())) ? "checked":""%> required>
-                        Male 
+                        <input type="radio" value="male" id="male" name="gender" <%=(user!=null &&"male".equals(user.getGender())) ? "checked":""%>>Male 
+                        <span id="genderError" style="color:red"></span>
                         <input type="radio" value="female" id="female" name="gender" <%=(user!=null&&"female".equals(user.getGender())) ? "checked":""%>>
                         Female
                     </td>
@@ -195,6 +214,9 @@ function validation(){
                         <input type="checkbox" name="areaOfInterest" value="Playing Cricket"  <%=(user != null && user.getAreaOfInterest() != null && user.getAreaOfInterest().contains("Playing Cricket")) ? "checked" : "" %>> Playing Cricket<br /> 
                         <input type="checkbox" name="areaOfInterest" value="Listening Music"  <%=(user != null && user.getAreaOfInterest() != null && user.getAreaOfInterest().contains("Listening Music")) ? "checked" : "" %>> Listening Music<br />
                     </td>
+                </tr>
+                <tr>
+                <td><span id="areaOfInterestError" style="color:red"></span></td>
                 </tr>
                 <tr>
                     <td><b>Upload File:</b></td>

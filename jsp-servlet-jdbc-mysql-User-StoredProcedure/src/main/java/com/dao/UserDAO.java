@@ -15,7 +15,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class UserDAO{
-	
     private static final String INSERT_USER_SQL="{call InsertUser(?, ?, ?, ?, ?, ?,?)}";   //CALL Statement is used to execute stored Procedure
     private static final String SELECT_USER_BY_ID="{call SelectUserById(?)}";   //Private access modifier is used to we can access within the class
     private static final String SELECT_ALL_USER="{call SelectAllUsers()}";
@@ -28,7 +27,7 @@ public class UserDAO{
     public UserDAO() {
     	getConnection(); 	
     }   
-	Connection connection; 
+	private Connection connection=null; 
     
     public Connection getConnection() {
     	InputStream is=UserDAO.class.getClassLoader().getResourceAsStream("UserForm.properties"); //Read Data from properties file
@@ -37,8 +36,7 @@ public class UserDAO{
 			prop.load(is);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-   
+		}  
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(prop.getProperty("DB_Driver1"));  //Load Driver
         config.setJdbcUrl(prop.getProperty("DB_Conn1"));
@@ -52,10 +50,9 @@ public class UserDAO{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-        return connection;
+        return connection; //here connection is return to connection pool
 }
-    
-       	
+          	
    //Insert New User
 	public void insertUser(User user) {
 		try (CallableStatement cs = connection.prepareCall(INSERT_USER_SQL)) {   //CallableStatement is interface used to call stored procedure and functions
@@ -75,7 +72,7 @@ public class UserDAO{
 	//Delete User
 	public boolean deleteUser(int id) {
         boolean rowDeleted = false;
-        try (CallableStatement cs = connection.prepareCall(DELETE_USER_SQL)) {
+        try (CallableStatement cs=connection.prepareCall(DELETE_USER_SQL)) {
             cs.setInt(1, id);
             rowDeleted = cs.executeUpdate() > 0;
         } catch (SQLException e) {
