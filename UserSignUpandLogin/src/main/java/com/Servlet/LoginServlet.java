@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     // Use a secure key with sufficient size for HS256
     private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private static final long EXPIRATION_TIME_MINUTES = 1; // set expire time 1 minute
+    private static final int EXPIRATION_TIME_MINUTES = 1; // set expire time 1 minute
     private static final Logger logger=LogManager.getLogger(LoginServlet.class);
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -48,15 +48,15 @@ public class LoginServlet extends HttpServlet {
 			    //Token Validation
 			    if (isTokenExpired(jwtToken)) {
 			    	logger.info("Token Expired User Logged Out Successfully..");
-			        response.sendRedirect(request.getContextPath() + "/Logout.jsp");
+			        response.sendRedirect("Logout.jsp");
 			        return;
 			    }
-			    response.sendRedirect(request.getContextPath() + "/Success.jsp");
+			    response.sendRedirect("Success.jsp");
 			    logger.info("User Logged in Successfully.");
 			    			    
 			    } else {	
 			    request.setAttribute("error", "User entered wrong credentials,please enter correctly....");
-			    request.getRequestDispatcher("/Login.jsp").include(request, response);
+			    request.getRequestDispatcher("/Login.jsp").forward(request, response);
 			    logger.info("User entered wrong credentials,please enter correctly....");
 			}
 		} catch (SQLException e) {
@@ -70,11 +70,11 @@ public class LoginServlet extends HttpServlet {
         Date expirationDate = Date.from(expirationTime);
         logger.info("Token Issued At: " + expirationTime);
         // Payload(claims) data
-        String JwtToken = Jwts
+        String JwtToken=Jwts
                 .builder() // it is used to build new token
                 .setSubject(email) // During the authentication process it often carries a Unique identifier for the user.
                 .setIssuedAt(Date.from(expirationTime)) 
-                .setExpiration(expirationDate) // set Expire time for token
+                .setExpiration(expirationDate) 
                 .signWith(SECRET_KEY)  //sign token with the specified algorithm and secret key
                 .compact();  
         logger.info("Generated Token:" + JwtToken);
@@ -82,7 +82,7 @@ public class LoginServlet extends HttpServlet {
     }
     
     // Token Validation
-    private boolean isTokenExpired(String jwtToken) {
+    private boolean isTokenExpired(String jwtToken){    
         try {        
             Instant expire = Jwts   //This class is used for creating JSON Web Tokens (JWTs).
                     .parserBuilder()  
@@ -95,8 +95,8 @@ public class LoginServlet extends HttpServlet {
             logger.info("Token Expiration Time: " + expire);
             logger.info("Secret Key: "+SECRET_KEY);
             return expire.isBefore(Instant.now());
-        } catch (Exception e) {
-            return true;
+        }catch (Exception e){
+            return false;
         }
     }
 }

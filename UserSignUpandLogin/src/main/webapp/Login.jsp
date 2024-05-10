@@ -5,53 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login</title>
     
-    <script>
-    function validate() {
-    	
-    	//Email Validation  
+   <script>
+    function validate() {    
+        //Email Validation  
         var email = document.form.email.value;
-        var emailError=document.getElementById("emailError");
+        var emailError = document.getElementById("emailError");
         
         if (email.trim() === "" || email == null) {
-        	emailError.innerHTML = "Email field is required..";
+            emailError.innerHTML = "Email field is required..";
             return false;
         }
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
-        	emailError.innerHTML = "Invalid email address..";
+            emailError.innerHTML = "Invalid email address..";
             return false;
-        }
-        else{
-        	emailError.innerHTML="";
+        } else {
+            emailError.innerHTML = "";
         }
         
         //Contact Validation
         var contact = document.form.contact.value;
-        var contactError=document.getElementById("contactError");
+        var contactError = document.getElementById("contactError");
         
         if (contact.trim() === "" || contact == null) {
-            document.getElementById("contactError").innerHTML = "Contact field is required..";
+            contactError.innerHTML = "Contact field is required..";
             return false;
         }
         var contactPattern = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
-    	if (!contactPattern.test(contact)) {
-    	    contactError.innerHTML = "Invalid Contact..";
-    	    return false;
-    	}
-       
-        }else{
-        	emailError.innerHTML="";
+        if (!contactPattern.test(contact)) {
+            contactError.innerHTML = "Invalid Contact..";
+            return false;
+        } else {
+            contactError.innerHTML = "";
         }
         
         //Password Validation
         var password = document.form.password.value;
-        document.getElementById("passwordError").innerHTML = "";
+        var passwordError = document.getElementById("passwordError");
+        
         if (password.trim() === "" || password == null) {
-            document.getElementById("passwordError").innerHTML = "Password field is required..";
+            passwordError.innerHTML = "Password field is required..";
             return false;
-        }else{
-        	passwordError.innerHTML="";
-        } 
+        } else {
+            passwordError.innerHTML = "";
+        }
         return true;
     }
 </script>
@@ -160,7 +157,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Login"></td>
+                    <td colspan="3"><input type="submit" value="Login"></td>
                 </tr>
             </table>
         </form>

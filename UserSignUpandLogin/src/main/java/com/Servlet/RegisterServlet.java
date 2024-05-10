@@ -19,13 +19,11 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    public UserDao userDAO;
+    
     private static final Logger logger=LogManager.getLogger(RegisterServlet.class);
 
-    public void init() {
-        userDAO =new UserDao();
-    }
-
+    UserDao userDAO=new UserDao();
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String firstName = request.getParameter("firstName");

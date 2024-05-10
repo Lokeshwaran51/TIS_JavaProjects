@@ -17,7 +17,7 @@ public class UserDao {
 	 public UserDao() {
 	    	getConnection(); 	
 	    }  
-	Connection con; 
+	private Connection con; 
 	//Connection Initialization
 	public Connection getConnection() {  
 		try {
@@ -49,8 +49,7 @@ public class UserDao {
     
     // Insert user data
 	public void insert(userModel usermodel) throws SQLException {
-		try (Connection con=getConnection();
-				CallableStatement cs = con.prepareCall(INSERT_USER)) {
+		try (CallableStatement cs = con.prepareCall(INSERT_USER)) {
 			cs.setString(1, usermodel.getFirstName());
 			cs.setString(2, usermodel.getLastName());
 			cs.setString(3, usermodel.getContact());
@@ -66,36 +65,30 @@ public class UserDao {
     // Check if user exists by email, password, and contact while register
 	public boolean userExistsByEmail(String email) throws SQLException {
 		boolean userExists = false;
-		try (Connection con=getConnection();
-				CallableStatement ps = con.prepareCall(USER_EXISTS)) {
+		try (CallableStatement ps = con.prepareCall(USER_EXISTS)) {
 			ps.setString(1, email);
 			try (ResultSet rs = ps.executeQuery()) {
 				userExists = rs.next(); // If there is a next row, user exists
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		} 
 		return userExists;
 	}
 
     // Validate user details while login
 	public boolean validateUser(String email, String password, String contact) throws SQLException {
-		try (Connection con=getConnection();
-				CallableStatement cs = con.prepareCall(LoginUser)) {
+		try (CallableStatement cs=con.prepareCall(LoginUser)) {
 			cs.setString(1, email);
 			cs.setString(2, password);
 			cs.setString(3, contact);
-			try (ResultSet rs = cs.executeQuery()) {
+			try (ResultSet rs=cs.executeQuery()) {
 				if (rs.next()) {
 					return true;
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 		return false;
 	}
