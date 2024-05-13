@@ -86,12 +86,12 @@ public class LoginServlet extends HttpServlet {
         try {        
             Instant expire = Jwts   //This class is used for creating JSON Web Tokens (JWTs).
                     .parserBuilder()  
-                    .setSigningKey(SECRET_KEY)  //it is used to set key that will be used to verify the signature of the token during the validation.
+                    .setSigningKey(SECRET_KEY) 
                     .build()  //it is used to build final instance of the JWTparser
-                    .parseClaimsJws(jwtToken) //is used to parse and validate a JWT token's signature 
-                    .getBody()  //method is used to retrieve the claims (payload) of a parsed JWT.
+                    .parseClaimsJws(jwtToken) //is used to validate a JWT token's signature 
+                    .getBody() 
                     .getExpiration()  //it is used to return expiration time of the token.
-                    .toInstant();  //instant it returns current time.            
+                    .toInstant();      
             logger.info("Token Expiration Time: " + expire);
             logger.info("Secret Key: "+SECRET_KEY);
             return expire.isBefore(Instant.now());
