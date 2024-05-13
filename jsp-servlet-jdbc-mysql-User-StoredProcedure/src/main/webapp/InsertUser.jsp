@@ -112,16 +112,25 @@ function validation(){
 			 nameError.innerHTML = "";
 		}
 		
-		 // Checkbox Validation
+		//Gender Validation
+		var gender=document.querySelector('input[name="gender"]:checked');
+		if(!gender){
+			document.getElementById("genderError").innerHTML="Gender field is required please select..";
+			return false;
+		}else{
+			document.getElementById("genderError").innerHTML="";
+		}
+		
+		 //AreaOfInterest Validation
 	    var areaOfInterest=document.querySelectorAll('input[name="areaOfInterest"]:checked');
-    if (areaOfInterest.length === 0) {
-        document.getElementById("areaOfInterestError").innerHTML = "Please select at least one checkbox.";
-        return false;
-    } else {
-        document.getElementById("areaOfInterestError").innerHTML = "";
-    }
-		return true;
-	}
+	    if(areaOfInterest.length===0){
+	        document.getElementById("areaOfInterestError").innerHTML = "Please select at least one checkbox.";
+	        return false;
+	    } else {
+	        document.getElementById("areaOfInterestError").innerHTML = "";
+	    }
+			return true;
+		}
 </script>
 
 </head>
@@ -187,11 +196,14 @@ function validation(){
                 <tr>
                     <td><b>Gender: </b></td>
                     <td>
-                        <input type="radio" value="male" id="male" name="gender" <%=(user!=null &&"male".equals(user.getGender())) ? "checked":""%>required>
+                        <input type="radio" value="male" id="male" name="gender" <%=(user!=null &&"male".equals(user.getGender())) ? "checked":""%>>
                         Male
                         <input type="radio" value="female" id="female" name="gender"<%=(user!=null &&"female".equals(user.getGender())) ? "checked":""%>>
                         Female
                     </td>
+                </tr>
+                <tr>
+                <td><span id="genderError" style="color:red"></span></td>
                 </tr>
                 <tr>
                     <td><b>Area of Interest:</b></td>

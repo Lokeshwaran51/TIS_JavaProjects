@@ -113,24 +113,24 @@ function validation(){
 		}
 		
 		//Gender Validation
-		var gender=document.updateform.gender.value;
+		var gender=document.querySelector('input[name="gender"]:checked');
 		var genderError=document.getElementById("genderError");
-		
-		if(gender.trim()===""||gender==null){
+		if(!gender){
 			genderError.innerHTML="Gender field is required please select..";
 			return false;
 		}else{
 			genderError.innerHTML="";
 		}
-		//CheckBox Validation
-		 var areaOfInterest=document.querySelectorAll('input[name="areaOfInterest"]:checked');
-		    if (areaOfInterest.length === 0){
-		        document.getElementById("areaOfInterestError").innerHTML = "Please select at least one checkbox.";
-		        return false;
-		    } else {
-		        document.getElementById("areaOfInterestError").innerHTML = "";
-		    }
 		
+		//AreaOfInterest Validation
+		var areaOfInterest = document.querySelectorAll('input[name="areaOfInterest"]:checked');
+		if (areaOfInterest.length === 0) {
+			document.getElementById("areaOfInterestError").innerHTML = "Please select at least one checkbox.";
+			return false;
+		} else {
+			document.getElementById("areaOfInterestError").innerHTML = "";
+		}
+
 		return true;
 	}
 </script>

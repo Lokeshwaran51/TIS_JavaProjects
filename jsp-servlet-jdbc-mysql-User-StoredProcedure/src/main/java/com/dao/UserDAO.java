@@ -148,12 +148,12 @@ public class UserDAO{
     //User Email and Contact Validation
 	public boolean validateuseremail(String email){
 		boolean emailExists=false;
-		try {
+		try{
 			CallableStatement cs=connection.prepareCall(Email_Exists);
 			cs.setString(1,email);
 			ResultSet rs=cs.executeQuery();
 			emailExists=rs.next();
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return emailExists;
